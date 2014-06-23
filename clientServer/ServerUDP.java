@@ -22,7 +22,7 @@ public class ServerUDP {
 			int port = receivePacket.getPort(); // get port client
 			
 			String reponse = new String("reponse");	// prépare réponse
-			byte[] bytes = reponse.getBytes();		// converti réponse en byte[]
+			byte[] bytes = reponse.getBytes();		// convertir réponse en byte[]
 			DatagramPacket sendPacket = 			// prépare le paquet
 					new DatagramPacket(bytes, bytes.length, adresseClient, port);
 			
