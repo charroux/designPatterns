@@ -1,5 +1,8 @@
 package clientServer;
 
+import java.net.DatagramSocket;
+import java.net.ServerSocket;
+
 public class ConnectionFactory {
 	 
 	public enum Protocol{
@@ -7,13 +10,15 @@ public class ConnectionFactory {
 		TCP
 	}
 	
-	public ? getConnection(String adresse, Protocol protocol){
+	public Object getConnection(String adresse, Protocol protocol) throws Exception{
 		if(protocol == Protocol.TCP){
 			// créer un serveur TCP
-			return ...
+			ServerSocket listennerSocket = SingletonConnection.getListennerSocket();
+			return listennerSocket;
 		} else {
 			// créer un serveur UDP
-			return ...
+			DatagramSocket serverSocket = new DatagramSocket(9876); // ouvrir port 9876
+			return serverSocket;
 		}
 	}
 
