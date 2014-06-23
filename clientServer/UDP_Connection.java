@@ -16,15 +16,12 @@ public class UDP_Connection implements Connection{
 
 	@Override
 	public void send(String message) throws Exception {
-		
-		
 		String reponse = new String("reponse");	// prépare réponse
 		byte[] bytes = reponse.getBytes();		// convertir réponse en byte[]
 		// prépare le paquet
 		DatagramPacket sendPacket = new DatagramPacket(bytes, bytes.length, adresseClient, port);
 		DatagramSocket serverSocket = SingletonUDPConnection.getServerSocket();
 		serverSocket.send(sendPacket);			// envoi paquet
-		
 	}
 
 	@Override
