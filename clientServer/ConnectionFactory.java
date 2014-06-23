@@ -8,6 +8,7 @@ import java.net.ServerSocket;
  * 
  * 	- Serveur TCP
  * 	- Serveur UDP
+ * 
  * @author charroux
  *
  */
@@ -25,7 +26,7 @@ public class ConnectionFactory {
 			return listennerSocket;
 		} else {
 			// créer un serveur UDP
-			DatagramSocket serverSocket = new DatagramSocket(9876); // ouvrir port 9876
+			DatagramSocket serverSocket = SingletonUDPConnection.getServerSocket();
 			return serverSocket;
 		}
 	}
