@@ -12,20 +12,21 @@ public class ServerTCP {
 	public static void main(String[] a){
 		
 		try{
+			ServerSocket listennerSocket = SingletonConnection.getListennerSocket();
+			//ServerSocket listennerSocket = new ServerSocket(6789);	// ouverture port 6789
 			
-			ServerSocket listennerSocket = new ServerSocket(6789);
-			
-			Socket dialogSocket = listennerSocket.accept();
+			Socket dialogSocket = listennerSocket.accept();	// attente connection client
 			
 			BufferedReader reader = new BufferedReader(new InputStreamReader(dialogSocket.getInputStream()));
 			BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(dialogSocket.getOutputStream()));
 			
+			// boucle de réception et d'envoi de messages
 			while(true){
-				String line = reader.readLine();
+				String line = reader.readLine();	// réception message du client
 				System.out.println("serveur recoit : " + line);
-				writer.write(line);
-				writer.newLine();
-				writer.flush();
+				writer.write(line);					// envoi réponse au client
+				writer.newLine();					// envoi fin de chaine
+				writer.flush();						// vide la mémoire tampon (force l'envoi)
 			}
 	       
 		}catch(Exception e){
