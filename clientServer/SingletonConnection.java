@@ -3,6 +3,11 @@ package clientServer;
 import java.io.IOException;
 import java.net.ServerSocket;
 
+/**
+ * Applicaion du design pattern singleton pour manipuler une instance unique du serveur
+ * @author charroux
+ *
+ */
 public class SingletonConnection {
 	static{
 		try {
