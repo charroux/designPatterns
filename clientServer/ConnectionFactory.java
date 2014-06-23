@@ -21,7 +21,7 @@ public class ConnectionFactory {
 	public static Object getConnection(String adresse, Protocol protocol) throws Exception{
 		if(protocol == Protocol.TCP){
 			// créer un serveur TCP
-			ServerSocket listennerSocket = SingletonConnection.getListennerSocket();
+			ServerSocket listennerSocket = SingletonTCPConnection.getListennerSocket();
 			return listennerSocket;
 		} else {
 			// créer un serveur UDP
