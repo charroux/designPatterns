@@ -30,5 +30,12 @@ public class ConnectionFactory {
 			return serverSocket;
 		}
 	}
+	
+	public void send(String message) throws Exception{
+		
+	}
 
+	public  String receive() throws Exception{
+		
+	}
 }
