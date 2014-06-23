@@ -3,6 +3,13 @@ package clientServer;
 import java.net.DatagramSocket;
 import java.net.ServerSocket;
 
+/**
+ * Utilisation du pattern factory pour masquer 2 implantations de classes complexes :
+ * 	- Serveur TCP
+ * 	- Serveur UDP
+ * @author charroux
+ *
+ */
 public class ConnectionFactory {
 	 
 	public enum Protocol{
