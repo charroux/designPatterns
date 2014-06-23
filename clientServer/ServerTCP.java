@@ -7,12 +7,16 @@ import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import clientServer.ConnectionFactory.Protocol;
+
 public class ServerTCP {
 	
 	public static void main(String[] a){
 		
 		try{
-			ServerSocket listennerSocket = SingletonConnection.getListennerSocket();
+			ServerSocket listennerSocket = (ServerSocket)ConnectionFactory.getConnection("localhost", Protocol.TCP);
+			
+			//ServerSocket listennerSocket = SingletonConnection.getListennerSocket();
 			//ServerSocket listennerSocket = new ServerSocket(6789);	// ouverture port 6789
 			
 			Socket dialogSocket = listennerSocket.accept();	// attente connection client

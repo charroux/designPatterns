@@ -4,6 +4,8 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
+import clientServer.ConnectionFactory.Protocol;
+
 public class ServerUDP {
 
 	
@@ -11,7 +13,8 @@ public class ServerUDP {
 
 		try{
 		
-			DatagramSocket serverSocket = new DatagramSocket(9876); // ouvrir port 9876 
+			DatagramSocket serverSocket = (DatagramSocket) ConnectionFactory.getConnection("localhost", Protocol.UDP); 
+			//DatagramSocket serverSocket = new DatagramSocket(9876); // ouvrir port 9876 
 			byte[] receiveData = new byte[1024];	// tableau pour recevoir données
 			DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
 			serverSocket.receive(receivePacket);	// attente message
