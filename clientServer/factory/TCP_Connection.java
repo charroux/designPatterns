@@ -31,6 +31,7 @@ public class TCP_Connection  implements Connection{
 	public String receive() throws Exception {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(dialogSocket.getInputStream()));	
 		String message = reader.readLine();	// réception message du client
+		System.out.println("le serveur a recu : " + message);
 		return message;
 	}
 

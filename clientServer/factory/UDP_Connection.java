@@ -34,6 +34,7 @@ public class UDP_Connection implements Connection{
 		adresseClient = receivePacket.getAddress(); // get adresse client
 		port = receivePacket.getPort(); // get port client
 		String message = new String(receiveData);	// conversion bytes en String
+		System.out.println("le serveur a recu : " + message);
 		return message;
 	}
 
