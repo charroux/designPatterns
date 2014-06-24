@@ -1,4 +1,4 @@
-package clientServer;
+package clientServer.factory;
 
 public interface Connection {
 	

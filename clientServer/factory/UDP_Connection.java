@@ -1,8 +1,10 @@
-package clientServer;
+package clientServer.factory;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+
+import clientServer.singleton.SingletonUDPConnection;
 
 public class UDP_Connection implements Connection{
 

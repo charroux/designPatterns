@@ -1,4 +1,4 @@
-package clientServer;
+package clientServer.singleton;
 
 import java.io.IOException;
 import java.net.ServerSocket;
