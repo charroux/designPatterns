@@ -8,7 +8,6 @@ import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-import client.Connection;
 
 public class TCP_Connection implements Connection{
 

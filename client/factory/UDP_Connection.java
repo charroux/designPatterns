@@ -4,7 +4,6 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
-import client.Connection;
 
 public class UDP_Connection implements Connection{
 

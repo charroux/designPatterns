@@ -1,6 +1,8 @@
 package client;
 
-import client.ConnectionFactory.Protocol;
+import client.factory.Connection;
+import client.factory.ConnectionFactory;
+import client.factory.ConnectionFactory.Protocol;
 
 public class ClientAvecDesignPatterns {
 	
