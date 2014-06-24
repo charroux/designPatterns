@@ -1,9 +1,5 @@
 package clientServer.factory;
 
-import java.net.DatagramSocket;
-import java.net.ServerSocket;
-
-
 /**
  * Utilisation du pattern factory pour masquer 2 implantations de classes complexes :
  * 
