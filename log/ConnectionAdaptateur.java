@@ -19,9 +19,8 @@ public class ConnectionAdaptateur extends Observable implements Logger, Connecti
 
 	Connection connection;
 	
-	public ConnectionAdaptateur(){
-		LoggerObserver loggerObserver = new LoggerObserver(); 	// création d'un observer
-		this.addObserver(loggerObserver);						// enregistrement de l'observer
+	public ConnectionAdaptateur(LoggerObserver observer){
+		this.addObserver(observer);						// enregistrement de l'observer
 	}
 	
 	@Override
