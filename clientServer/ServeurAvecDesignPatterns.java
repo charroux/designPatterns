@@ -27,7 +27,7 @@ public class ServeurAvecDesignPatterns {
 		try{
 			
 			ConnectionFactory factory = new ConnectionFactory();
-			Connection connection = factory.getConnection(Protocol.TCP);
+			Connection connection = factory.getConnection(Protocol.UDP);
 			connection.connection(6666);
 			
 			
