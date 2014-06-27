@@ -10,7 +10,7 @@ public class ServeurAvecDesignPatterns {
 	
 	public static void main(String[] args) {
 		
-		// utilisation du pattern factory qui masque entièrement la classe UDP_Connection
+		/*// utilisation du pattern factory qui masque entièrement la classe UDP_Connection
 		try{
 			ConnectionFactory factory = new ConnectionFactory();
 			Connection connection = factory.getConnection(Protocol.UDP);
@@ -21,18 +21,22 @@ public class ServeurAvecDesignPatterns {
 			}
 		}catch(Exception e){
 			e.printStackTrace();
-		}
+		}*/
 		
 		
 		try{
 			
-			// Connection connection1 = new Connection(); impossible d'instancier une interface
-			Connection connection = new TCP_Connection();
+			ConnectionFactory factory = new ConnectionFactory();
+			Connection connection = factory.getConnection(Protocol.TCP);
 			connection.connection(6666);
+			
+			
 			while(true){
 				String message = connection.receive();
 				connection.send(message);
 			}
+			
+			
 		}catch(Exception e){
 			e.printStackTrace();
 		}

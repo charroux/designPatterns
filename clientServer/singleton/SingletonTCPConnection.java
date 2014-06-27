@@ -11,7 +11,7 @@ import java.net.ServerSocket;
 public class SingletonTCPConnection {
 	static{
 		try {
-			listennerSocket = new ServerSocket(6789); // ouverture port 6789
+			listennerSocket = new ServerSocket(6666); // ouverture port 6789
 		} catch (IOException e) {
 			e.printStackTrace();
 		}	

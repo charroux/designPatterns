@@ -10,10 +10,10 @@ public class ClientAvecDesignPatterns {
 
 		try{
 			ConnectionFactory connectionFactory = new ConnectionFactory();
-			Connection connection = connectionFactory.getConnexion(Protocol.UDP, "localhost", 6789);
+			Connection connection = connectionFactory.getConnexion(Protocol.UDP, "localhost", 6666);
 			connection.send("Salut");
 			String message = connection.receive();
-			System.out.println(message);
+			System.out.println("message renvoye par le serveur : " + message);
 		}catch(Exception e){
 			e.printStackTrace();
 		}
