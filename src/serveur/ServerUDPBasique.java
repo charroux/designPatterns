@@ -12,7 +12,9 @@ public class ServerUDPBasique {
 
 		try{
 		 
-			DatagramSocket serverSocket = new DatagramSocket(9876); // ouvrir port 9876 
+			//DatagramSocket serverSocket = new DatagramSocket(9876); // ouvrir port 9876 
+			DatagramSocket serverSocket = Factory.getServer();
+				
 			byte[] receiveData = new byte[1024];	// tableau pour recevoir données
 			DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
 			serverSocket.receive(receivePacket);	// attente message
