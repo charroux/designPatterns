@@ -12,8 +12,8 @@ public class Main {
 			serveurUDP.envoyer("Reponse");
 			
 			// sans factory TCP
-			ServerBasique serveurTCP = new ServerUDPBasique();
-			serveurTCP.ouvrirConnection(8869);
+			ServerBasique serveurTCP = new ServerTCPBasique();
+			serveurTCP.ouvrirConnection(8895);
 			String message2 = serveurTCP.recevoir();
 			serveurTCP.envoyer("Reponse");
 			

@@ -5,7 +5,7 @@ import java.net.DatagramSocket;
 public class Singleton{
 	
 	private static DatagramSocket server;
-	static boolean serverExists = false;
+	private static boolean serverExists = false;
 
 	public static DatagramSocket getServer(int port) throws Exception{
 		if(serverExists == false){
