@@ -5,18 +5,12 @@ package serveur;
  * @author Charroux_std
  *
  */
-public class ServerBasique {
+public interface ServerBasique {
 	
-	public boolean ouvrirConnection(int port){
-		
-	}
+	public boolean ouvrirConnection(int port);
 	
-	public boolean envoyer(String message){
-		
-	}
+	public boolean envoyer(String message);
 	
-	public String recevoir(){
-		
-	}
+	public String recevoir();
 	
 }

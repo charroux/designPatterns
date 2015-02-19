@@ -7,7 +7,7 @@ import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class ServerTCPBasique extends ServerBasique{
+public class ServerTCPBasique implements ServerBasique{
 	
 	public static void main(String[] a){
 		
@@ -33,6 +33,24 @@ public class ServerTCPBasique extends ServerBasique{
 			e.printStackTrace();
 		}
 		
+	}
+
+	@Override
+	public boolean ouvrirConnection(int port) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean envoyer(String message) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public String recevoir() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
