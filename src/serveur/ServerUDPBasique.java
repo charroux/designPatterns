@@ -11,20 +11,6 @@ public class ServerUDPBasique implements ServerBasique{
 	private byte[] receiveData = new byte[1024];	// tableau pour recevoir données
 	private InetAddress adresseClient;
 	private int port;
-	
-	public static void main(String[] args) {
-
-		try{
-		 
-			
-
-			
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		
-
-	}
 
 	@Override
 	public void ouvrirConnection(int port) throws Exception{ 
@@ -32,15 +18,13 @@ public class ServerUDPBasique implements ServerBasique{
 	}
 
 	@Override
-	public boolean envoyer(String message) {
+	public void envoyer(String message) throws Exception{
 		String reponse = new String("reponse");	// prépare réponse
 		byte[] bytes = reponse.getBytes();		// convertir réponse en byte[]
 		DatagramPacket sendPacket = 			// prépare le paquet
 				new DatagramPacket(bytes, bytes.length, adresseClient, port);
 		
 		serverSocket.send(sendPacket);			// envoi paquet
-		
-		return false;
 	}
 
 	@Override
@@ -51,6 +35,12 @@ public class ServerUDPBasique implements ServerBasique{
 		adresseClient = receivePacket.getAddress(); // get adresse client
 		port = receivePacket.getPort(); // get port client
 		return null;
+	}
+	
+	protected void finalize() throws Throwable{
+		if(serverSocket != null){
+			serverSocket.close();
+		}
 	}
 
 }
