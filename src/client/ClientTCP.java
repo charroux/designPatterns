@@ -13,7 +13,7 @@ public class ClientTCP {
 		try{
 		
 			// connection au server localhost sur le port 6789
-			Socket socket = new Socket("localhost", 6789); 
+			Socket socket = new Socket("localhost", 8895); 
 			
 			BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));

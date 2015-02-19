@@ -9,48 +9,29 @@ import java.net.Socket;
 
 public class ServerTCPBasique implements ServerBasique{
 	
-	public static void main(String[] a){
-		
-		try{
-			
-			ServerSocket listennerSocket = new ServerSocket(6789);	// ouverture port 6789
-			
-			Socket dialogSocket = listennerSocket.accept();	// attente connection client
-			
-			BufferedReader reader = new BufferedReader(new InputStreamReader(dialogSocket.getInputStream()));
-			BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(dialogSocket.getOutputStream()));
-			
-			// boucle de réception et d'envoi de messages
-			while(true){
-				String line = reader.readLine();	// réception message du client
-				System.out.println("serveur recoit : " + line);
-				writer.write(line);					// envoi réponse au client
-				writer.newLine();					// envoi fin de chaine
-				writer.flush();						// vide la mémoire tampon (force l'envoi)
-			}
-	       
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		
+	private BufferedReader reader;
+	private BufferedWriter writer;
+
+	@Override
+	public void ouvrirConnection(int port) throws Exception {
+		ServerSocket serverSocket = SingletonTCP.getServer(port);
+		Socket dialogSocket = serverSocket.accept();	// attente connection client
+		reader = new BufferedReader(new InputStreamReader(dialogSocket.getInputStream()));
+		writer = new BufferedWriter(new OutputStreamWriter(dialogSocket.getOutputStream()));
 	}
 
 	@Override
-	public boolean ouvrirConnection(int port) {
-		// TODO Auto-generated method stub
-		return false;
+	public void envoyer(String message) throws Exception {
+		writer.write(message);				// envoi réponse au client
+		writer.newLine();					// envoi fin de chaine
+		writer.flush();	
 	}
 
 	@Override
-	public boolean envoyer(String message) {
-		// TODO Auto-generated method stub
-		return false;
+	public String recevoir() throws Exception {
+		return reader.readLine();	// réception message du client
 	}
 
-	@Override
-	public String recevoir() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 }

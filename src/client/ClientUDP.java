@@ -19,8 +19,10 @@ public class ClientUDP {
 			// cherche adresse serveur
 			InetAddress adresseServeur = InetAddress.getByName("localhost");	
 			DatagramPacket sendPacket =  			// prépare le paquet
-					new DatagramPacket(bytes, bytes.length, adresseServeur, 9876);
+					new DatagramPacket(bytes, bytes.length, adresseServeur, 8869);
 			clientSocket.send(sendPacket );	// envoi paquet
+			
+			System.out.println("envoye fait");
 			
 			byte[] receiveData = new byte[1024];	// tableau pour recevoir données
 			DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);

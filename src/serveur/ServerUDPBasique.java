@@ -14,7 +14,7 @@ public class ServerUDPBasique implements ServerBasique{
 
 	@Override
 	public void ouvrirConnection(int port) throws Exception{ 
-		serverSocket = Singleton.getServer(port); 
+		serverSocket = SingletonUDP.getServer(port); 
 	}
 
 	@Override
