@@ -34,7 +34,7 @@ public class ServerUDPBasique implements ServerBasique{
 		String message = new String(receiveData);	// conversion bytes en String
 		adresseClient = receivePacket.getAddress(); // get adresse client
 		port = receivePacket.getPort(); // get port client
-		return null;
+		return message;
 	}
 	
 	protected void finalize() throws Throwable{
