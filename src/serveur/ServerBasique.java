@@ -7,10 +7,10 @@ package serveur;
  */
 public interface ServerBasique {
 	
-	public boolean ouvrirConnection(int port);
+	public void ouvrirConnection(int port) throws Exception;
 	
 	public boolean envoyer(String message);
 	
-	public String recevoir();
+	public String recevoir() throws Exception;
 	
 }
