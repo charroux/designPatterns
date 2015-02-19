@@ -19,8 +19,7 @@ public class ServerUDPBasique implements ServerBasique{
 
 	@Override
 	public void envoyer(String message) throws Exception{
-		String reponse = new String("reponse");	// prépare réponse
-		byte[] bytes = reponse.getBytes();		// convertir réponse en byte[]
+		byte[] bytes = message.getBytes();		// convertir réponse en byte[]
 		DatagramPacket sendPacket = 			// prépare le paquet
 				new DatagramPacket(bytes, bytes.length, adresseClient, port);
 		
