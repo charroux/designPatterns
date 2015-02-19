@@ -5,23 +5,14 @@ import java.net.DatagramSocket;
 public class Singleton{
 	
 	private static DatagramSocket server;
-	
-	static{
-		try{
-			server = new DatagramSocket(9876);
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-	}	 
+	static boolean serverExists = false;
 
-	public static DatagramSocket getServer(){
+	public static DatagramSocket getServer(int port) throws Exception{
+		if(serverExists == false){
+			server = new DatagramSocket(port);
+			serverExists = true;
+		}
 		return server;
 	}
 	
-	public static void main(String[] a){
-		int i;
-		i = 0;
-		DatagramSocket socket1 = Singleton.getServer();
-		DatagramSocket socke2 = Singleton.getServer();
-	}
 }

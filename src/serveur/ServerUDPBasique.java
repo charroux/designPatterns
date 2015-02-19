@@ -12,9 +12,7 @@ public class ServerUDPBasique implements ServerBasique{
 
 		try{
 		 
-			//DatagramSocket serverSocket = new DatagramSocket(9876); // ouvrir port 9876 
-			DatagramSocket serverSocket = Singleton.getServer();	// ouvrir port 9876 
-				
+			
 			byte[] receiveData = new byte[1024];	// tableau pour recevoir données
 			DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
 			serverSocket.receive(receivePacket);	// attente message
@@ -39,8 +37,8 @@ public class ServerUDPBasique implements ServerBasique{
 	}
 
 	@Override
-	public boolean ouvrirConnection(int port) {
-		// TODO Auto-generated method stub
+	public boolean ouvrirConnection(int port) { 
+		DatagramSocket serverSocket = Singleton.getServer(port); 
 		return false;
 	}
 
