@@ -7,7 +7,7 @@ import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class ServerTCPBasique {
+public class ServerTCPBasique extends ServerBasique{
 	
 	public static void main(String[] a){
 		

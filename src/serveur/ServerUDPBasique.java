@@ -5,7 +5,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 
 
-public class ServerUDPBasique {
+public class ServerUDPBasique extends ServerBasique{
 
 	
 	public static void main(String[] args) {
