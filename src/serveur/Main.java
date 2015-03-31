@@ -5,8 +5,15 @@ public class Main {
 	public static void main(String[] args) {
 		try{
 			
+			Observer observer1 = new Observer();
+			Observer observer2 = new Observer();
+			
 			Factory factory = new Factory();
-			ServerBasique serveur = factory.getServeur(TypeServer.TCP);
+			ServerBasique serveur = factory.getServeur(TypeServer.UDP);
+			
+			serveur.attach(observer1);
+			serveur.attach(observer2);
+			
 			serveur.ouvrirConnection(8869);
 			String message1 = serveur.recevoir();
 			System.out.println("recu " + message1);

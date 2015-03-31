@@ -6,11 +6,36 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
-public class ServerTCPBasique implements ServerBasique{
+public class ServerTCPBasique implements ServerBasique {
 	
 	private BufferedReader reader;
 	private BufferedWriter writer;
+
+	List<Observer> observers = new ArrayList<Observer>();
+	
+	public void attach(Observer observer){
+		if(observers.contains(observer) == false){
+			observers.add(observer);
+		}
+	}
+	
+	public void detach(Observer observer){
+		observers.remove(observer);
+	}
+	
+	/**
+	 * Broadcast le message à tous les observers : 
+	 * appeler la méthode appelée change des observers
+	 * @param message
+	 */
+	public void notify(String message){	
+		for(Observer observer : observers){
+			observer.change(message, this);
+		}
+	}
 
 	@Override
 	public void ouvrirConnection(int port) throws Exception {
@@ -29,7 +54,9 @@ public class ServerTCPBasique implements ServerBasique{
 
 	@Override
 	public String recevoir() throws Exception {
-		return reader.readLine();	// réception message du client
+		String message = reader.readLine();	// réception message du client
+		this.notify(message);				// notifications aux observers
+		return message;		
 	}
 
 

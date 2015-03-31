@@ -6,7 +6,7 @@ package serveur;
  * @author Charroux_std
  *
  */
-public interface ServerBasique {
+public interface ServerBasique extends Observable{
 	
 	public void ouvrirConnection(int port) throws Exception;
 	
